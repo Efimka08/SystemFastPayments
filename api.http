@@ -2,7 +2,7 @@
 GET http://localhost:8080/accounts
 
 ###
-GET http://localhost:8080/account/f660371d-a062-465f-9860-5cfc97691db8
+GET http://localhost:8080/account/af6045b1-a7b7-4da4-a055-a2238a4c3a0d
 
 ###
 POST http://localhost:8080/account/create
@@ -14,19 +14,19 @@ Content-Type: application/json
 PUT http://localhost:8080/account/replenish
 Content-Type: application/json
 
-{"id": "d2a5be9d-4edf-42ad-9244-48d5799db533", "amount": 500}
+{"id": "af6045b1-a7b7-4da4-a055-a2238a4c3a0d", "amount": 500}
 
 ###
 PUT http://localhost:8080/account/withdraw
 Content-Type: application/json
 
-{"id": "d2a5be9d-4edf-42ad-9244-48d5799db533", "amount": 300}
+{"id": "af6045b1-a7b7-4da4-a055-a2238a4c3a0d", "amount": 300}
 
 ###
 PUT http://localhost:8080/account/transfer
 Content-Type: application/json
 
-{"idFrom": "d2a5be9d-4edf-42ad-9244-48d5799db533", "idTo": "2ee1c2e0-beb8-40bd-932b-0833e17e8138", "amount": 150}
+{"idFrom": "af6045b1-a7b7-4da4-a055-a2238a4c3a0d", "idTo": "be229e26-7de8-4131-a46f-5335fe3d73f4", "amount": 150}
 
 ###
-DELETE http://localhost:8080/account/b49cdbf2-4444-440b-8f42-1a690b218e0b
+DELETE http://localhost:8080/account/be229e26-7de8-4131-a46f-5335fe3d73f4
