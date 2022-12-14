@@ -5,7 +5,7 @@ import SFP.repository.AccountRepositoryInMemory
 import io.circe._, io.circe.generic.auto._, io.circe.parser._, io.circe.syntax._
 
 object SystemFastPaymentsApp extends App {
-  val repository = new AccountRepositoryInMemory
+/*  val repository = new AccountRepositoryInMemory
   val AccIdFirst = repository.createAccount(CreateAccount()).id
   val AccIdSecond = repository.createAccount(CreateAccount()).id
 
@@ -33,4 +33,6 @@ object SystemFastPaymentsApp extends App {
   private val list = repository.list()
   val result = list.asJson.spaces2
   println(result)
+
+ */
 }

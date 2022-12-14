@@ -8,6 +8,7 @@ import akka.http.scaladsl.server.Directives._
 
 object SystemFastPaymentsHttpApp extends App {
   implicit val system: ActorSystem = ActorSystem("SystemFastPaymentsApp")
+  implicit val ec = system.dispatcher
   val repository = new AccountRepositoryInMemory
   val helloRoute = new HelloRoute().route
   val accountRoute = new AccountRoute(repository).route
