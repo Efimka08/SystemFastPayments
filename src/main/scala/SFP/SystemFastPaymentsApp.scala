@@ -2,6 +2,7 @@ package SFP
 
 import SFP.model._
 import SFP.repository.AccountRepositoryInMemory
+import io.circe._, io.circe.generic.auto._, io.circe.parser._, io.circe.syntax._
 
 object SystemFastPaymentsApp extends App {
   val repository = new AccountRepositoryInMemory
@@ -25,7 +26,11 @@ object SystemFastPaymentsApp extends App {
   repository.transferMoney(TransferMoney(AccIdSecond, AccIdFirst, 1500))
   println(repository.list())
 
-  repository.deleteAccount(AccIdFirst)
-  repository.deleteAccount(AccIdSecond)
-  println(repository.list())
+//  repository.deleteAccount(AccIdFirst)
+//  repository.deleteAccount(AccIdSecond)
+//  println(repository.list())
+
+  private val list = repository.list()
+  val result = list.asJson.spaces2
+  println(result)
 }

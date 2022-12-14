@@ -12,6 +12,10 @@ class AccountRepositoryInMemory extends AccountRepository {
     bank.values.toList
   }
 
+  override def get(id: UUID): Account = {
+    bank(id)
+  }
+
   override def createAccount(create: CreateAccount): Account = {
     val account = Account(id = UUID.randomUUID(), balance = 0)
     bank.put(account.id, account)

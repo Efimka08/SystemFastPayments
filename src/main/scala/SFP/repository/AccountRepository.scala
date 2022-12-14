@@ -7,6 +7,7 @@ import java.util.UUID
 
 trait AccountRepository {
   def list(): List[Account]
+  def get(id: UUID): Account
   def createAccount(account: CreateAccount): Account
   def replenishAccount(account: ReplenishAccount): Option[Account]
   def withdrawAccount(account: WithdrawAccount): Option[Account]
