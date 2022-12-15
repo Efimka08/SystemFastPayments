@@ -20,13 +20,13 @@ Content-Type: application/json
 PUT http://localhost:8080/account/withdraw
 Content-Type: application/json
 
-{"id": "3324fa82-09ee-4466-9a3c-9fa404aefcca", "amount": 300}
+{"id": "3324fa82-09ee-4466-9a3c-9fa404aefcca", "amount": 1300}
 
 ###
 PUT http://localhost:8080/account/transfer
 Content-Type: application/json
 
-{"idFrom": "3324fa82-09ee-4466-9a3c-9fa404aefcca", "idTo": "7c43267d-f504-4903-b0ac-8fae6cfe2386", "amount": 50}
+{"idFrom": "3324fa82-09ee-4466-9a3c-9fa404aefcca", "idTo": "7c43267d-f504-4903-b0ac-8fae6cfe2386", "amount": 20}
 
 ###
 DELETE http://localhost:8080/account/a4bdf465-9390-462d-8dc0-dbc5cada7a70

@@ -46,10 +46,8 @@ class AccountRepositoryDb(implicit val ec: ExecutionContext, db: Database) exten
       for {
             existed <- db.run(query.result.headOption)
             _ <- db.run {
-              if (withdrawAccount.amount <= 0) {query.update(existed.get)}
-              else
-                if (withdrawAccount.amount > existed.get) {query.update(existed.get)}
-                else {query.update(existed.get - withdrawAccount.amount)}
+              if (withdrawAccount.amount <= 0 || withdrawAccount.amount > existed.get) {query.update(existed.get)}
+              else {query.update(existed.get - withdrawAccount.amount)}
             }
             res <- find(withdrawAccount.id)
       } yield res
@@ -66,10 +64,8 @@ class AccountRepositoryDb(implicit val ec: ExecutionContext, db: Database) exten
             existedFrom <- db.run(queryFrom.result.headOption)
             existedTo <- db.run(queryTo.result.headOption)
             _ <- db.run {
-              if (transferMoney.amount <= 0) {queryFrom.update(existedFrom.get)}
-              else
-                if (transferMoney.amount > existedFrom.get) {queryFrom.update(existedFrom.get)}
-                else {
+              if (transferMoney.amount <= 0 || transferMoney.amount > existedFrom.get) {queryFrom.update(existedFrom.get)}
+              else {
                 queryFrom.update(existedFrom.get - transferMoney.amount)
                 queryTo.update(existedTo.get + transferMoney.amount)
               }
