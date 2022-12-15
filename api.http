@@ -29,4 +29,4 @@ Content-Type: application/json
 {"idFrom": "d7875c47-51bd-461d-9b49-73ec1e81ca13", "idTo": "41108fd3-f50d-4bfd-b168-5e9cbbda9a77", "amount": 175}
 
 ###
-DELETE http://localhost:8080/account/d7875c47-51bd-461d-9b49-73ec1e81ca13
+DELETE http://localhost:8080/account/8b1d77f0-cfd3-4039-b853-ad766d3e8eee
