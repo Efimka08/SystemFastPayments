@@ -7,7 +7,7 @@ import scala.concurrent.Future
 
 
 trait AccountRepository {
-  def list(): Future[List[Account]]
+  def list(): Future[Seq[Account]]
   def get(id: UUID): Future[Account]
   def createAccount(account: CreateAccount): Future[Account]
   def replenishAccount(account: ReplenishAccount): Future[Option[Account]]

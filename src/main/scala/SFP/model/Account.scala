@@ -2,7 +2,7 @@ package SFP.model
 
 import java.util.UUID
 
-case class Account(id: UUID, balance: Int)
+case class Account(id: UUID = UUID.randomUUID(), balance: Int = 0)
 
 case class CreateAccount()
 case class ReplenishAccount(id: UUID, amount: Int)

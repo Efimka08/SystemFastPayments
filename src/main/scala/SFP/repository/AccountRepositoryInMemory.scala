@@ -9,7 +9,7 @@ import scala.concurrent.{ExecutionContext, Future}
 class AccountRepositoryInMemory(implicit val ec: ExecutionContext) extends AccountRepository {
   private val bank = mutable.Map[UUID, Account]()
 
-  override def list(): Future[List[Account]] = Future {
+  override def list(): Future[Seq[Account]] = Future {
     bank.values.toList
   }
 
