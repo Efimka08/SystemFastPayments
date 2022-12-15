@@ -54,6 +54,7 @@ class AccountRepositoryDb(implicit val ec: ExecutionContext, db: Database) exten
   }
 
   override def transferMoney(transferMoney: TransferMoney): Future[Option[Account]] = {
+      val WithdrawFromAccount = WithdrawAccount(transferMoney.idFrom, transferMoney.amount)
       val queryFrom = accountTable
           .filter(_.id === transferMoney.idFrom)
           .map(_.balance)
@@ -66,7 +67,7 @@ class AccountRepositoryDb(implicit val ec: ExecutionContext, db: Database) exten
             _ <- db.run {
               if (transferMoney.amount <= 0 || transferMoney.amount > existedFrom.get) {queryFrom.update(existedFrom.get)}
               else {
-                queryFrom.update(existedFrom.get - transferMoney.amount)
+                withdrawAccount(WithdrawFromAccount)
                 queryTo.update(existedTo.get + transferMoney.amount)
               }
             }

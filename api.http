@@ -26,7 +26,7 @@ Content-Type: application/json
 PUT http://localhost:8080/account/transfer
 Content-Type: application/json
 
-{"idFrom": "3324fa82-09ee-4466-9a3c-9fa404aefcca", "idTo": "7c43267d-f504-4903-b0ac-8fae6cfe2386", "amount": 20}
+{"idFrom": "3324fa82-09ee-4466-9a3c-9fa404aefcca", "idTo": "7c43267d-f504-4903-b0ac-8fae6cfe2386", "amount": 40}
 
 ###
 DELETE http://localhost:8080/account/a4bdf465-9390-462d-8dc0-dbc5cada7a70
