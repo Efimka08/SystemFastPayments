@@ -54,7 +54,7 @@ class AccountRepositoryDb(implicit val ec: ExecutionContext, db: Database) exten
   }
 
   override def transferMoney(transferMoney: TransferMoney): Future[Option[Account]] = {
-      val WithdrawFromAccount = new WithdrawAccount(transferMoney.idFrom, transferMoney.amount)
+      val WithdrawFromAccount = WithdrawAccount(transferMoney.idFrom, transferMoney.amount)
       val queryFrom = accountTable
           .filter(_.id === transferMoney.idFrom)
           .map(_.balance)
