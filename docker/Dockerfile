@@ -12,13 +12,16 @@ RUN apt-get install sbt
 
 WORKDIR /build
 COPY . .
-RUN cd system-fast-payments && sbt stage
+RUN sbt stage
+# RUN cd system-fast-payments && sbt stage
 
 # 2. Образ запуска
 FROM $APP_RUNNER
 
 WORKDIR /app
-COPY --from=builder /build/system-fast-payments/target/universal/stage/bin bin
-COPY --from=builder /build/system-fast-payments/target/universal/stage/lib lib
+COPY --from=builder /build/target/universal/stage/bin bin
+COPY --from=builder /build/target/universal/stage/lib lib
+# COPY --from=builder /build/system-fast-payments/target/universal/stage/bin bin
+# COPY --from=builder /build/system-fast-payments/target/universal/stage/lib lib
 
 ENTRYPOINT sleep 2 && bin/system-fast-payments-db-app
